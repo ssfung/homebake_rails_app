@@ -10,14 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_121913) do
+ActiveRecord::Schema.define(version: 2020_05_12_043517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bakers", force: :cascade do |t|
+    t.text "description"
+    t.string "location"
+    t.bigint "users_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_bakers_on_users_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.integer "quantity"
+    t.boolean "delivery"
+    t.boolean "gluten_free"
+    t.boolean "vegan"
+    t.boolean "dairy_free"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "listings_categories", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_listings_categories_on_category_id"
+    t.index ["listing_id"], name: "index_listings_categories_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,8 +68,14 @@ ActiveRecord::Schema.define(version: 2020_05_11_121913) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bakers", "users", column: "users_id"
+  add_foreign_key "carts", "users"
+  add_foreign_key "listings", "users"
+  add_foreign_key "listings_categories", "categories"
+  add_foreign_key "listings_categories", "listings"
 end
