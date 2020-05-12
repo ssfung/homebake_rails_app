@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
-subject { Listing.new(title: 'brownie', description: 'chocolate brownie', price: 500, quantity: 1, delivery: true, gluten_free: false, vegan: false, dairy_free: false,)}
+subject { Listing.new(title: 'brownie', description: 'chocolate brownie', price: 500, quantity: 1, delivery: true, gluten_free:false, vegan:false, dairy_free:false, user_id:1)}
 
 context 'validations' do 
   it 'is valid with valid attributes' do 
@@ -14,10 +14,13 @@ context 'validations' do
   end
 
   it 'is not valid without a description' do 
-  false 
-  # subject.description = nil
-  # byebug
-  # expect(subject).to_not be_valid
+  subject.description = nil
+  expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a price' do 
+  subject.description = nil
+  expect(subject).to_not be_valid
   end
   
 end 
