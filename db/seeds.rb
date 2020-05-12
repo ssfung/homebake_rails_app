@@ -45,7 +45,7 @@ listings = [
 
 listings.each do |listing|
 Listing.create(listing)
-l.picture
+# l.picture
 end
 p 'listings created'
 
