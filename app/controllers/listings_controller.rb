@@ -1,10 +1,10 @@
-class ListingsController < ApplicationController
+class ListingsController < ApplicationController 
+  before_action :find_listing, only:[:show, :edit, :update, :destroy]
   def index
     @listings = Listing.all
   end 
 
   def show
-    @listing = Listing.find(params[:id])
   end 
 
   def new
@@ -22,16 +22,29 @@ class ListingsController < ApplicationController
     end
   end 
 
+  def edit
+  end 
+  
   def update
+    @listing.update(listing_params)
+
+    redirect_to listings_path
   end 
 
-  def delete
+  def destroy
+  @listing.destroy
+
+  redirect_to listings_path 
   end 
 
 
   private
 
   def listing_params  
-    params.require(:listing).permit(:title, :description, :gluten_free, :price)
+    params.require(:listing).permit(:title, :description, :gluten_free, :price, :vegan, :dairy_free, :delivery, :picture)
+  end 
+
+  def find_listing
+  @listing = Listing.find(params[:id])
   end 
 end

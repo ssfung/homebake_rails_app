@@ -1,0 +1,51 @@
+<%= form_with(model: @listing, local: true) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price, min: 0 %>
+  </div>
+  <div>
+    <%= form.label :gluten_free %>
+    <%= form.check_box (:gluten_free)%>
+  </div>
+    <div>
+    <%= form.label :vegan %>
+    <%= form.check_box (:vegan)%>
+  </div>
+  <div>
+    <%= form.label :dairy_free %>
+    <%= form.check_box (:dair_free)%>
+  </div>
+  <div>
+    <%= form.label :delivery %>
+    <%= form.check_box (:delivery)%>
+  </div>
+  <div>
+  <%= form.label :picture %> 
+  <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+</div>
+  <div>
+    <%= form.submit %>
+  </div>
+   <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h2>
+      <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+ 

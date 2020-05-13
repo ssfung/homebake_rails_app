@@ -4,6 +4,8 @@
 <p>Price: <%= number_to_currency(@listing.price / 100.0) %></p>
 <p>Gluten Free: <%=@listing.gluten_free?  %></p>
 <p>Vegan:<%=@listing.vegan?%></p>
+<p>Dairy Free:<%=@listing.dairy_free?%></p>
 <p>Delivery:<%=@listing.delivery?  %></p>
 
+<%= link_to 'edit', edit_listing_path(@listing) %>
 <%= link_to 'Back', listings_path%>
