@@ -1,0 +1,9 @@
+
+<h1><%= @listing.title %></h1>
+<p><%=@listing.description  %></p>
+<p>Price: <%= number_to_currency(@listing.price / 100.0) %></p>
+<p>Gluten Free: <%=@listing.gluten_free?  %></p>
+<p>Vegan:<%=@listing.vegan?%></p>
+<p>Delivery:<%=@listing.delivery?  %></p>
+
+<%= link_to 'Back', listings_path%>

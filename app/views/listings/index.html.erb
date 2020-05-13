@@ -1,6 +1,5 @@
-<h1> listings</h1>
-<% @listings.each do |listing| %>
-<p><%= listing.title %>: </p>
-<p><%= listing.description %><p>
-<p><%= listing.price %><p>
-<% end %>
+<h1>All listings</h1>
+<% @listings.each do |listing|%>
+<p> <%=link_to listing.title, listing_path(listing)%></p>
+<p> <%=listing.description %></p>
+<% end %> 
