@@ -8,4 +8,5 @@
 <p>Delivery:<%=@listing.delivery?  %></p>
 
 <%= link_to 'edit', edit_listing_path(@listing) %>
+<%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %>
 <%= link_to 'Back', listings_path%>
