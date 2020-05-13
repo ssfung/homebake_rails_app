@@ -3,7 +3,7 @@
 Listing.delete_all
 User.delete_all
 
-
+p 'deleted previous listings & users'
 p 'creating user' 
 user = User.create(name:'Bella', email:'b@gmail.com', password: '123456')
 p user 
@@ -23,11 +23,7 @@ listings = [
   vegan: false,
   dairy_free:false,
   user_id: user.id 
-  # listing.picture.attach(
-  # io: File.open("app/assets/images/brownie.jpeg"), 
-  # filename: "brownie.jpg", 
-  # content_type: "image/jpg"
-  # )},
+
   },
   {
   title: 'Chocolate chip cookies',
@@ -39,13 +35,13 @@ listings = [
   vegan: false,
   dairy_free:false,
   user_id: user.id
-
   }
 ]
-
+ 
 listings.each do |listing|
-Listing.create(listing)
-# l.picture
+Listing.create(listing) 
+p listing
 end
+
 p 'listings created'
 

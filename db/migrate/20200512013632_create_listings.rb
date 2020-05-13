@@ -9,7 +9,6 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.boolean :gluten_free
       t.boolean :vegan
       t.boolean :dairy_free
-
       t.timestamps
     end
   end

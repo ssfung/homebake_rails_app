@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_053234) do
+ActiveRecord::Schema.define(version: 2020_05_12_145027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_05_12_053234) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "carts_listings", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_carts_listings_on_cart_id"
+    t.index ["listing_id"], name: "index_carts_listings_on_listing_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -87,6 +96,8 @@ ActiveRecord::Schema.define(version: 2020_05_12_053234) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "users"
+  add_foreign_key "carts_listings", "carts"
+  add_foreign_key "carts_listings", "listings"
   add_foreign_key "listings", "users"
   add_foreign_key "listings_categories", "categories"
   add_foreign_key "listings_categories", "listings"
