@@ -7,8 +7,8 @@
 <p>Dairy Free:<%=@listing.dairy_free?%></p>
 <p>Delivery:<%=@listing.delivery?  %></p>
 <%# <%= image_tag @listing.picture if @listing.picture.attached? %>
-
+ <% if can? :edit, @listing %>
 <%= link_to 'edit', edit_listing_path(@listing) %>
 <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %>
-
+<% end %>
 <%= link_to 'Back', listings_path%>
