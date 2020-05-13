@@ -23,7 +23,6 @@ listings = [
   vegan: false,
   dairy_free:false,
   user_id: user.id 
-
   },
   {
   title: 'Chocolate chip cookies',
@@ -40,6 +39,10 @@ listings = [
  
 listings.each do |listing|
 Listing.create(listing) 
+# listing.picture.attach(
+#   io: File.open('app/assets/images/cookie.jpeg'), 
+#   filename: 'cookie.jpeg',
+#   content_type: "image/jpg/")
 p listing
 end
 
