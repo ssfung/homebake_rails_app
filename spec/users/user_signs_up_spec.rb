@@ -16,5 +16,8 @@ RSpec.feature 'User signs up' do
 
     expect(page).to have_content(user_name)
     #fields will be model_attribute#
+
+
+    
   end 
 end 
