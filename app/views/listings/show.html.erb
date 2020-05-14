@@ -9,6 +9,9 @@
 <%= image_tag @listing.picture if @listing.picture.attached? %>
  <% if can? :edit, @listing %>
 <%= link_to 'edit', edit_listing_path(@listing) %>
-<%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %>
+<%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> 
 <% end %>
 <%= link_to 'Back', listings_path%>
+<%= link_to "Pay now", "", id: "stripe" %>
+
+<%= javascript_pack_tag "stripe" %>
