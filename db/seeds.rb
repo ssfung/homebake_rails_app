@@ -38,11 +38,12 @@ listings = [
 ]
  
 listings.each do |listing|
-Listing.create(listing) 
-# listing.picture.attach(
-#   io: File.open('app/assets/images/cookie.jpeg'), 
-#   filename: 'cookie.jpeg',
-#   content_type: "image/jpg/")
+new_listing = Listing.new(listing) 
+new_listing.picture.attach(
+  io: File.open('app/assets/images/cookie.jpeg'), 
+  filename: 'cookie.jpeg',
+  content_type: "image/jpg/")
+new_listing.save
 p listing
 end
 
