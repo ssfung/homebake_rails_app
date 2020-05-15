@@ -12,6 +12,7 @@
 <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> 
 <% end %>
 <%= link_to 'Back', listings_path%>
+<% if user_signed_in? && listing.sold == false && listing.user.id != current_user.id %>
 <%= link_to "Pay now", "", id: "stripe" %>
 
 <%= javascript_pack_tag "stripe" %>
