@@ -1,6 +1,6 @@
 <h1>All listings</h1>
 <% @listings.each do |listing|%>
-<p><%= image_tag @listing.picture if @listing.picture.attached? %></p>
+
 <p> <%=link_to listing.title, listing_path(listing)%></p>
 <p> <%=listing.description %></p>
 <% end %> 
