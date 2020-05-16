@@ -1,4 +1,4 @@
-class AddCompletedToCarts < ActiveRecord::Migration[6.0]
+gitclass AddCompletedToCarts < ActiveRecord::Migration[6.0]
   def change
     add_column :carts, :completed, :boolean
   end
