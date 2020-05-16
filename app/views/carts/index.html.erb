@@ -1,9 +1,14 @@
-
 <h1> Cart </h1>
+<% if !@cart  %>
+<p> Cart is empty </p>
+<% end  %>
 <ul>
-<% @cart.listings.each do |listing| %>
+<% @cart.carts_listings.each do |listing| %>
 <li> <%= listing.title %></li>
+<li> <%= number_to_currency(listing.price/100.00) %></li>
 </ul>
+<p>Total:</p>
+
 <% end %>
 <%= link_to "Pay Now", "", id:"stripe" %>
 <%= javascript_pack_tag "stripe" %>
