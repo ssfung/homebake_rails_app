@@ -11,6 +11,7 @@ class Listing < ApplicationRecord
   has_one_attached :picture
   has_many :carts, through: :carts_listings 
   belongs_to :user 
+  has_many :carts_listings
 end 
   
   # validates :title, presence: true

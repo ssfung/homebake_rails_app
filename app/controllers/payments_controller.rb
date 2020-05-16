@@ -1,8 +1,19 @@
-class PaymentsController < ApplicationController  
+class PaymentsController < ApplicationController
   def success 
     # @listing = Listing.find(params[:listingId])
   end 
+  
+  def webhook
+  payment_id= params[:data][:object][:payment_intent]
+  payment = Stripe::PaymentIntent.retrieve(payment_id)
+  listing_id = payment.metadata.listing_id
+  user_id = payment.metadata.user_id
+  p "listing id " + listing_id
+  p "user id " + user_id
 
+
+  head 200
+  end 
   def get_stripe_id
     @listing = Listing.find(params[:id])
     session_id = Stripe::Checkout::Session.create(
@@ -28,4 +39,4 @@ class PaymentsController < ApplicationController
   end
 
 
-end 
+end
