@@ -1,6 +1,19 @@
 <h1>All listings</h1>
-<% @listings.each do |listing|%>
+  <div class ="all-listings">
+    <div class = "row">
+      <div class ="card-listing">
+         <div class="col-sm-6">
+          <% @listings.each do |listing|%>
+           <div class ="card-content">
+             <%= render 'shared/image', listing:listing %>
+             <p> <%=link_to listing.title, listing_path(listing)%></p>
+             <p> <%=listing.description %></p>
+             <p> <%=listing.price %>
+              <% end %> 
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
 
-<p> <%=link_to listing.title, listing_path(listing)%></p>
-<p> <%=listing.description %></p>
-<% end %> 
+
