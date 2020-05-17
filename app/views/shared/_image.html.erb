@@ -1,2 +1,3 @@
-  <%# <div class = "listing-picture">
-    <%= image_tag @listing.picture, style: "max-height:500px; max-width:300px;"  if @listing.picture.attached? %>
+<%# <div class = "listing-picture">
+<%= image_tag(@listing.picture) if @listing.picture.attached?%>
+<%# </div> %>

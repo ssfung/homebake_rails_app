@@ -1,3 +1,5 @@
+
+
 nav{
   padding:30px;
   margin-bottom:10px;
@@ -6,18 +8,25 @@ nav{
   text-align:center;
   text-decoration:none;
 
-  a{
-    text-decoration:none;
-    color:white;
-  }
-}
 
-.home-icon{
+ 
+  a{
+  text-decoration:none;
+  color:white;
+  }
+
+  :hover{
+    text-decoration: none;
+  }
+
+  .home-icon{
   float:left;
-  font-size:20px;
 }
-.nav-top-right{
+  .nav-top-right{
   float: right;
   margin-right:20px;
 }
+
+}
+
 
