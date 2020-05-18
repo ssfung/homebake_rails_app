@@ -1,9 +1,10 @@
+
 <h1>All listings</h1>
+<div class = "row">
+<div class="col-sm-4s">
   <div class ="all-listings">
-    <div class = "row">
       <div class ="card-listing">
-         <div class="col-sm-6">
-          <% @listings.each do |listing|%>
+      <% @listings.each do |listing|%>
            <div class ="card-content">
              <%= render 'shared/image', listing:listing %>
              <p> <%=link_to listing.title, listing_path(listing)%></p>
