@@ -10,15 +10,15 @@
   <div class = "information">
     <p><%=@listing.description  %></p>
     <%if @listing.gluten_free? %>
-    <p>(GF)</p>
+    (GF)
     <% end  %>
 
     <%if @listing.vegan? %>
-    <p>(V)</p>
+    (V)
     <% end  %>
 
     <%if @listing.dairy_free? %>
-    <p>(DF)</p>
+    (DF)
     <% end  %>
 
 
