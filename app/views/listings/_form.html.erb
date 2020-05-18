@@ -31,6 +31,10 @@
     <%= form.check_box (:delivery)%>
   </div>
   <div>
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.order(:name),:id,:name %>
+  </div>
+  <div>
   <%= form.label :picture %> 
   <p><%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %></p>
 </div>

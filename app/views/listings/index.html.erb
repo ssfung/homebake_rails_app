@@ -1,7 +1,6 @@
 <h1>All listings</h1>
 <div class = "row listings-row">
     <div class ="all-listings">
-    <div class = "col-sm-4">
       <div class ="card-listing">
       <% @listings.each do |listing|%>
           <div class ="card-content">
@@ -11,7 +10,6 @@
           <p> <%=number_to_currency(listing.price) %>
           </div>
         <% end %>
-        </div>
       </div>
     </div>
 </div>

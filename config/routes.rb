@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resources :listings
   resources :carts
+  get "/users/:id", to: "users#show"
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
