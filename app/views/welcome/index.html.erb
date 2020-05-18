@@ -1,10 +1,23 @@
-<div class="welcome-page"></div>
-<div class = "welcome-title">
-<h1>Baked with love </h1>
+<div class="welcome-page">
+  <div class = "row row-cols-2">
+  <div class="col-6 welcome-sign">
+  <%= image_tag("macarons.jpeg", style: "max-width:100%; height:auto")%>
+  </div>
+    <div class="col-6", id="homebaked-info">
+    <h1>HOMEBAKE</h1>
+    <p>Buy and sell baked at home treats including cakes, breads and desserts. </p>
+    </div>
+  </div>
 </div>
-  <% if user_signed_in? %>
-  <h1>Welcome <%=current_user.name  %>🍰</h1>
-  <% end  %>
-<div class ="homebaked-information">
-  <p>Melbourne's first platform to buy and sell baked at home treats including cakes, breads and desserts. </p>
-</div>
+
+
+
+
+
+
+
+<% if user_signed_in? %>
+<h1>Welcome <%=current_user.name  %>🍰</h1>
+<% end  %>
+
+  
