@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>HomebakeApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <title>Home bake</title>
+     <%= csrf_meta_tags %>
+     <%= csp_meta_tag %>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_pack_tag 'application' %>
+     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= favicon_link_tag asset_path('favicon.ico') %>
+   </head>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
-  <body>
-  <%= render "shared/nav" %>
-    <%= yield %>
-  </body>
-</html>
+   <body>
+     <%= render "shared/nav" %>
+    <div class = "container">
+     <%= yield %>
+     </div>
+   </body>
+ </html>

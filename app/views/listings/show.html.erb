@@ -1,18 +1,42 @@
+<div class = "listing-wrapper">
+<div class = "row">
+<div class="col-sm-6">
+  <div class = "listing-picture">
+    <%= image_tag @listing.picture, style: "max-height:500px; max-width:300px;"  if @listing.picture.attached? %>
+  </div>
+  </div>
+  <div class="col-sm-6">
+  <div class = title><h1><%= @listing.title %></h1></div>
+  <div class = "information">
+    <p><%=@listing.description  %></p>
+    <%if @listing.gluten_free? %>
+    <p>(GF)</p>
+    <% end  %>
 
-<h1><%= @listing.title %></h1>
-<p><%=@listing.description  %></p>
-<p>Price: <%= number_to_currency(@listing.price / 100.0) %></p>
-<p>Gluten Free: <%=@listing.gluten_free?  %></p>
-<p>Vegan:<%=@listing.vegan?%></p>
-<p>Dairy Free:<%=@listing.dairy_free?%></p>
-<p>Delivery:<%=@listing.delivery?  %></p>
-<%= image_tag @listing.picture if @listing.picture.attached? %>
- <% if can? :edit, @listing %>
-<%= link_to 'Edit', edit_listing_path(@listing) %>
-<%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> 
-<% end %>
-<%= link_to 'Back', listings_path%>
-<% if user_signed_in? && @listing.user.id != current_user.id %>
-<%= link_to "Pay now", "", id: "stripe" %>
-<% end  %>
-<%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post %>
+    <%if @listing.vegan? %>
+    <p>(V)</p>
+    <% end  %>
+
+    <%if @listing.dairy_free? %>
+    <p>(DF)</p>
+    <% end  %>
+
+
+     <p>Price: <%= number_to_currency(@listing.price) %></p>
+    <%if @listing.delivery? %>
+    <p>Delivery Availiable</p>
+    <% end  %>
+    <p>Chef: <%=@listing.user_id%>
+    
+    <p><%= link_to 'Back', listings_path%></p>
+    <% if can? :edit, @listing %>
+    <p><%= link_to 'Edit', edit_listing_path(@listing) %>
+    <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> 
+    <% end %>
+    <% if user_signed_in? &&  @listing.user.id != current_user.id %>
+    <%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post %>
+    <% end  %>
+    </div>
+    </div>
+    </div>
+</div>

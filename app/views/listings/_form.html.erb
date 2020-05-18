@@ -1,15 +1,18 @@
+<div class = "form-for-listings">
+<div class="form-row">
+<div class="col-mx-auto">
 <%= form_with(model: @listing, local: true) do |form| %>
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <p><%= form.text_field :title %></p>
   </div>
   <div>
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <p><%= form.text_area :description %></p>
   </div>
   <div>
     <%= form.label :price %>
-    <%= form.number_field :price, min: 0 %>
+    <p><%= form.number_field :price, min: 0 %></p>
   </div>
   <div>
     <%= form.label :gluten_free %>
@@ -21,7 +24,7 @@
   </div>
   <div>
     <%= form.label :dairy_free %>
-    <%= form.check_box (:dair_free)%>
+    <%= form.check_box (:dairy_free)%>
   </div>
   <div>
     <%= form.label :delivery %>
@@ -29,7 +32,7 @@
   </div>
   <div>
   <%= form.label :picture %> 
-  <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+  <p><%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %></p>
 </div>
   <div>
     <%= form.submit %>
@@ -48,4 +51,6 @@
     </div>
   <% end %>
 <% end %>
- 
+ </div>
+ </div>
+ </div>
