@@ -20,6 +20,8 @@
     <%if @listing.dairy_free? %>
     <p>(DF)</p>
     <% end  %>
+
+
      <p>Price: <%= number_to_currency(@listing.price) %></p>
     <%if @listing.delivery? %>
     <p>Delivery Availiable</p>
