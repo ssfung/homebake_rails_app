@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :gluten_free, :price, :vegan, :dairy_free, :delivery, :picture)
+    params.require(:listing).permit(:title, :description, :gluten_free, :price, :vegan, :dairy_free, :delivery, :picture, :name, categories_attributes: [:name])
   end
 
   def find_listing
