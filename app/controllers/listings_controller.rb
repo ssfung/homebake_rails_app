@@ -1,22 +1,20 @@
-class ListingsController < ApplicationController 
-  
-  before_action :find_listing, only:[:show, :edit, :update, :destroy]
+class ListingsController < ApplicationController
+  before_action :find_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   def index
     @listings = Listing.all
-  end 
+  end
 
   def show
-  end 
+  end
 
   def new
-    @listing = Listing.new 
+    @listing = Listing.new
+  end
 
-  end 
-
-  def create 
+  def create
     @listing = current_user.listings.new(listing_params)
     # @listing.save
     if @listing.save
@@ -24,31 +22,30 @@ class ListingsController < ApplicationController
     else
       render 'new'
     end
-  end 
+  end
 
   def edit
-  end 
-  
+  end
+
   def update
     @listing.update(listing_params)
 
     redirect_to listings_path
-  end 
+  end
 
   def destroy
-  @listing.destroy
+    @listing.destroy
 
-  redirect_to listings_path 
-  end 
-
+    redirect_to listings_path
+  end
 
   private
 
-  def listing_params  
+  def listing_params
     params.require(:listing).permit(:title, :description, :gluten_free, :price, :vegan, :dairy_free, :delivery, :picture)
-  end 
+  end
 
   def find_listing
-  @listing = Listing.find(params[:id])
-  end 
+    @listing = Listing.find(params[:id])
+  end
 end

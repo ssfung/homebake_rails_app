@@ -81,9 +81,7 @@ listings = [
   }
 ] 
 
- def categories
-new_listing.listings_categories.build(catagory_id: 1)
-end
+
 
 listings.each do |listing|
 new_listing = Listing.new(listing) 
@@ -91,7 +89,7 @@ new_listing.picture.attach(
   io: File.open('app/assets/images/cookie.jpeg'), 
   filename: 'cookie.jpeg',
   content_type: "image/jpg/") 
-new_listing.categories
+new_listing.listings_categories.build(category_id: 2)
 new_listing.save
 p listing
 end

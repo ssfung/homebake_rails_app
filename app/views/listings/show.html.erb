@@ -26,7 +26,7 @@
     <%if @listing.delivery? %>
     <p>Delivery Availiable</p>
     <% end  %>
-    <p>Chef: <%=@listing.user_id%>
+    <p>Chef: <%=@listing.user.name%>
     
     <p><%= link_to 'Back', listings_path%></p>
     <% if can? :edit, @listing %>
@@ -40,3 +40,4 @@
     </div>
     </div>
 </div>
+

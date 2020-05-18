@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
-  def success 
-  redirect_to payments_success_path 
-  end 
+  def success
+    redirect_to payments_success_path
+  end
 
   def get_stripe_id
     @listing = Listing.find(params[:id])
@@ -24,18 +24,17 @@ class PaymentsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
       cancel_url: "#{root_url}listings"
     ).id
-    render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}
+    render :json => { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 
   def webhook
-  payment_id= params[:data][:object][:payment_intent]
-  payment = Stripe::PaymentIntent.retrieve(payment_id)
-  listing_id = payment.metadata.listing_id
-  user_id = payment.metadata.user_id
-  p "listing id " + listing_id
-  p "user id " + user_id
-  
-  head 200
-  end 
+    payment_id = params[:data][:object][:payment_intent]
+    payment = Stripe::PaymentIntent.retrieve(payment_id)
+    listing_id = payment.metadata.listing_id
+    user_id = payment.metadata.user_id
+    p "listing id " + listing_id
+    p "user id " + user_id
 
+    head 200
+  end
 end

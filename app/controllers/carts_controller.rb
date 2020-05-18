@@ -1,12 +1,12 @@
 class CartsController < ApplicationController
-  def index 
+  def index
     if user_signed_in? && current_user.cart
-    @cart = current_user.cart.carts_listings
+      @cart = current_user.cart.carts_listings
     else
       redirect_to listings_path
-    end 
-  end 
-  
+    end
+  end
+
   def create
     cart = if !current_user.cart
              Cart.create(user_id: current_user.id)
@@ -17,4 +17,4 @@ class CartsController < ApplicationController
     cart.carts_listings.create(listing: listing)
     redirect_to listings_path
   end
-end   
+end
