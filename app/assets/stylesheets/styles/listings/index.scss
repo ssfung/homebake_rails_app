@@ -2,11 +2,15 @@ h1{
   text-align:center;
 }
 
+.listings-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 .card-listing{
   display:flex;
   flex-direction:wrap;
-  margin-left:5px;
-  margin-right:20px;
+ 
 
 }
 
