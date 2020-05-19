@@ -2,8 +2,48 @@ h1{
   text-align:center;
 }
 
-.card-listings{
+.sort-link{
   display:flex;
-  flex-direction:wrap;
+  justify-content: center;
+}
+.all-listings{
+display:flex;
+justify-content:center;
+align-items:center;
 
+}
+.listings-row{
+  display:flex;
+ justify-content: center;
+align-items: center;
+min-width:1%;
+ 
+}
+.card-listing{
+  display:flex;
+  flex-wrap:wrap;
+  flex-basis:auto;
+  justify-content:center;
+  align-items:center;
+
+}
+
+.card-content{
+  border: black 1px solid;
+  width:250px;
+  margin:20px;
+  word-wrap: break-word;
+  text-align:center;
+  
+
+
+
+  img{
+    height:200px;
+    width:200px;
+    display:block;
+    margin-top:auto;
+    margin-left:auto;
+    margin-right:auto;
+  }
 }

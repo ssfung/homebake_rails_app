@@ -30,6 +30,18 @@
     <%= form.label :delivery %>
     <%= form.check_box (:delivery)%>
   </div>
+
+
+  <div>
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.order(:name),:id,:name %>
+    <%= form.fields_for :categories, @listing.listings_categories.build do |categories| %>
+    <%# <% <%= categories.text_field :name %>
+    <% end  %>
+  </div>
+
+
+
   <div>
   <%= form.label :picture %> 
   <p><%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %></p>
