@@ -13,10 +13,11 @@
 <h3>Welcome <%=current_user.name  %>🍰</h3>
 <% end  %>
 
+ <h5>What would you like today?</h5>
 <div class="search-prompt">
-  </p>What do you feel like today?</p>
-</div>
-
-
-
-  
+  <%= search_form_for @q do |f| %>
+  <%= f.label :description%>
+  <%= f.text_field :description_cont, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>  

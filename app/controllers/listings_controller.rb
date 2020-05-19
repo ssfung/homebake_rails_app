@@ -1,10 +1,11 @@
 class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] 
   load_and_authorize_resource
 
   def index
-    @listings = Listing.all
+  @q = Listing.ransack(params[:q])
+  @listings = @q.result(distinct: true)
   end
 
   def show
@@ -16,7 +17,8 @@ class ListingsController < ApplicationController
 
   def create
     @listing = current_user.listings.new(listing_params)
-    # @listing.save
+    @listing.listings_categories.build(category_id:params[:listing][:category_id])
+   
     if @listing.save
       redirect_to listings_path
     else
@@ -29,7 +31,7 @@ class ListingsController < ApplicationController
 
   def update
     @listing.update(listing_params)
-
+    @listing.listings_categories.update(category_id:params[:listing][:category_id])
     redirect_to listings_path
   end
 
@@ -38,6 +40,7 @@ class ListingsController < ApplicationController
 
     redirect_to listings_path
   end
+
 
   private
 
