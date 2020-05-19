@@ -17,7 +17,7 @@
 <div class="search-prompt">
   <%= search_form_for @q do |f| %>
   <%= f.label :description%>
-  <%= f.text_field :description_cont, class: 'form-control' %>
+  <%= f.search_field :description_cont, class: 'form-control' %>
   <%= f.submit class: 'btn btn-primary' %>
   <% end %>
-</div>  
+</div> 
