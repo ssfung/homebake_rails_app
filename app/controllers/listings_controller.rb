@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 
   def index
   @q = Listing.ransack(params[:q])
-  @listings = @q.result(distinct: true)
+  @listings = @q.result(distinct: true).includes(:categories)
   end
 
   def show
