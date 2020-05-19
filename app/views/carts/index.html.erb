@@ -1,14 +1,11 @@
-<h1> Cart </h1>
-<% if !@cart  %>
-<p> Cart is empty </p>
-<% end  %>
-<ul>
-<% @cart.carts_listings.each do |listing| %>
-<li> <%= listing.title %></li>
-<li> <%= number_to_currency(listing.price) %></li>
-</ul>
-<p>Total:</p>
+<h1>Cart</h1>
 
-<% end %>
-<%= link_to "Pay Now", "", id:"stripe" %>
+<ul>
+  <% @cart.each do |listing| %>
+    <li><%= listing.title %> | <%= number_to_currency(listing.price / 100.0) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Pay Now ", "", id: "stripe" %>
+
 <%= javascript_pack_tag "stripe" %>
