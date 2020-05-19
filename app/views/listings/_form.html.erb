@@ -36,7 +36,7 @@
     <%= form.label :category %>
     <%= form.collection_select :category_id, Category.order(:name),:id,:name %>
     <%= form.fields_for :categories, @listing.listings_categories.build do |categories| %>
-    <%# <%= categories.text_field :name %>
+    <%# <% <%= categories.text_field :name %>
     <% end  %>
   </div>
 
