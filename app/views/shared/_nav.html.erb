@@ -1,7 +1,9 @@
 <nav>
 <div class ="home-icon">
 <%=link_to "Home 🧁", root_path %>
+<% if user_signed_in? %>
 <%= link_to "Profile", current_user %>
+<% end %>
 </div>
 <div class = "nav-top-right">
 <%= link_to "Listings | ", listings_path %>

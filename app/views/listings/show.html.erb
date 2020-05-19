@@ -23,8 +23,6 @@
 
 
      <p>Price: <%= number_to_currency(@listing.price) %></p>
-    <%if @listing.delivery? %>
-    <p>Delivery Available</p>
     <% end  %>
     <p>Chef: <%=@listing.user.name%>
   
