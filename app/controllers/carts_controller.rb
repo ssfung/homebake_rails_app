@@ -1,20 +1,23 @@
 class CartsController < ApplicationController
-  def index
-    if user_signed_in? && current_user.cart
-      @cart = current_user.cart.carts_listings
+  def index 
+    if user_signed_in? && current_user.carts.last
+      @cart = current_user.carts.last.carts_listings
+      @listing_ids = @cart.map do |listing|
+        listing.id
+      end
     else
       redirect_to listings_path
-    end
-  end
-
+    end 
+  end 
+  
   def create
-    cart = if !current_user.cart
-             Cart.create(user_id: current_user.id)
-           else
-             current_user.cart
-           end
+    if current_user.carts.empty?
+      cart = Cart.create(completed: false, user_id: current_user.id)
+    else
+      cart = current_user.carts.last
+    end 
     listing = Listing.find(params[:listing_id])
-    cart.carts_listings.create(listing: listing)
+    cart.carts_listings << listing
     redirect_to listings_path
   end
 end
