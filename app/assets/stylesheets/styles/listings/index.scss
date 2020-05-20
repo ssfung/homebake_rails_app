@@ -13,8 +13,8 @@ align-items:center;
 
 }
 .listings-row{
-  display:flex;
- justify-content: center;
+display:flex;
+justify-content: center;
 align-items: center;
 min-width:1%;
  
@@ -25,25 +25,30 @@ min-width:1%;
   flex-basis:auto;
   justify-content:center;
   align-items:center;
+  
 
 }
 
 .card-content{
-  border: black 1px solid;
+  border-radius: 2px;
   width:250px;
   margin:20px;
   word-wrap: break-word;
   text-align:center;
-  
+  border: 1px black solid;
+  &:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+} 
 
-
-
-  img{
+img{
     height:200px;
-    width:200px;
+    width:100%;
     display:block;
     margin-top:auto;
     margin-left:auto;
     margin-right:auto;
-  }
+    overflow: hidden;
+    transition: all .5s;
+    
 }
