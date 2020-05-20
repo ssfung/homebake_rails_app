@@ -1,11 +1,11 @@
 <div class = "form-for-listings">
-<div class="form-row">
-<div class="col-mx-auto">
-<%= form_with(model: @listing, local: true) do |form| %>
-  <div>
-    <%= form.label :title %>
-    <p><%= form.text_field :title %></p>
-  </div>
+  <div class="form-row">
+    <div class="col-mx-auto">
+      <%= form_with(model: @listing, local: true) do |form| %>
+    <div>
+      <%= form.label :title %>
+      <p><%= form.text_field :title %></p>
+    </div>
   <div>
     <%= form.label :description %>
     <p><%= form.text_area :description %></p>
@@ -30,39 +30,30 @@
     <%= form.label :delivery %>
     <%= form.check_box (:delivery)%>
   </div>
-
-
   <div>
     <%= form.label :category %>
     <%= form.collection_select :category_id, Category.order(:name),:id,:name %>
     <%= form.fields_for :categories, @listing.listings_categories.build do |categories| %>
-    <%# <% <%= categories.text_field :name %>
     <% end  %>
   </div>
-
-
-
   <div>
   <%= form.label :picture %> 
   <p><%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %></p>
-</div>
+  </div>
   <div>
     <%= form.submit %>
   </div>
-   <% if @listing.errors.any? %>
+  <% if @listing.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@listing.errors.count, "error") %> prohibited
-        this listing from being saved:
-      </h2>
-      <ul>
-        <% @listing.errors.full_messages.each do |msg| %>
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited
+        this listing from being saved:</h2>
+      <ul><% @listing.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 <% end %>
- </div>
+  </div>
  </div>
  </div>

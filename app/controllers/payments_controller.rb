@@ -1,10 +1,10 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
-  def success 
+  def success
     @listings = current_user.carts.last.listings
     Cart.create(completed: false, user_id: current_user.id)
-  end 
+  end
 
   def webhook
     payment_id = params[:data][:object][:payment_intent]
@@ -15,14 +15,14 @@ class PaymentsController < ApplicationController
       listing = Listing.find(id)
       listing.sold = true
       listing.save
-    end 
+    end
     user = User.find(payment.metadata.user_id)
     cart = user.carts.last
     cart.completed = true
     cart.save
     # need to void the cart
     head 200
-  end 
+  end
 
   def get_stripe_id
     @listings = current_user.carts.last.listings
@@ -30,11 +30,11 @@ class PaymentsController < ApplicationController
       {
         name: listing.title,
         description: listing.description,
-        amount: listing.price* 100,
+        amount: listing.price * 100,
         currency: 'aud',
         quantity: 1,
       }
-    end 
+    end
     listing_ids = @listings.pluck(:id).join(",")
     session_id = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -49,6 +49,6 @@ class PaymentsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingIds=#{listing_ids}",
       cancel_url: "#{root_url}listings"
     ).id
-    render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}
+    render :json => { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 end

@@ -4,8 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def set_search
-  @q =Listing.search(params[:q])
-  @listing = @q.result(distinct: true)
+    @q = Listing.search(params[:q])
+    @listing = @q.result(distinct: true)
 end
-
 end

@@ -1,19 +1,20 @@
 <h1>All listings</h1>
-  <div class = "sort-link"><p>Sort by<%= sort_link(@q, :title) %> . Sort by<%= sort_link(@q, :price) %></p>
+<div class = "sort-link">
+  <p>Sort by<%= sort_link(@q, :title) %> . Sort by<%= sort_link(@q, :price) %></p>
 </div>
 <div class = "row listings-row">
-    <div class ="all-listings">
-      <div class ="card-listing">
-      <% @listings.each do |listing|%>
-          <div class ="card-content">
-            <%= render 'shared/image', listing:listing %> 
-          <p> <%=link_to listing.title, listing_path(listing)%></p>
-          <p> <%=listing.description %></p>
-          <p> <%=number_to_currency(listing.price) %>
-          </div>
-        <% end %>
+  <div class ="all-listings">
+    <div class ="card-listing">
+    <% @listings.each do |listing|%>
+      <div class ="card-content">
+        <%= render 'shared/image', listing:listing %> 
+        <p> <%=link_to listing.title, listing_path(listing)%></p>
+        <p> <%=listing.description %></p>
+        <p> <%=number_to_currency(listing.price) %>
       </div>
+        <% end %>
     </div>
+  </div>
 </div>
  
 
