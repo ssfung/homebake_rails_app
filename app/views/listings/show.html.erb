@@ -1,10 +1,12 @@
 <div class = "listing-wrapper">
-  <div class = "row">
-    <div class="col-sm-6">
-      <div class = "listing-picture">
-      <%= image_tag @listing.picture, style: "max-height:600px; max-width:400px;"  if @listing.picture.attached? %>
-      </div>
-    </div>
+
+<div class = "row">
+<div class="col-sm-6">
+  <div class = "listing-picture">
+    <%= image_tag @listing.picture, style: "height:450px; max-width:450px;"  if @listing.picture.attached? %>
+  </div>
+  </div>
+
   <div class="col-sm-6">
     <div class = "listing-title"><h1><%= @listing.title %></h1></div>
       <div class = "information">
@@ -22,21 +24,24 @@
       <% end  %>
       <p>Price: <%= number_to_currency(@listing.price) %></p>
 
-    <p>Chef: <%=@listing.user.name%>
+
+     <p>Price: <%= number_to_currency(@listing.price) %></p>
+
+    <p>Chef:<%= @listing.user.name.capitalize%>
   
     <p>Category: <%= @listing.categories[0].name %>
    
-
-    <p><%= link_to 'Back', listings_path%></p>
+    
     <% if can? :edit, @listing %>
     <p><%= link_to 'Edit', edit_listing_path(@listing) %>
-    <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> 
+    <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> <%= link_to 'Back', listings_path%>
     <% end %>
+    <div class = "add-to-cart">
     <% if user_signed_in? &&  @listing.user.id != current_user.id %>
     <%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post %>
     <% end  %>
     </div>
     </div>
     </div>
+    </div>
 </div>
-

@@ -5,7 +5,7 @@
     <li><%= listing.title %> | <%= number_to_currency(listing.price / 100.0) %></li>
   <% end %>
 </ul>
-
+<p>Sorry! Cart currently unavailable. Please contact the user for payment options</p>
 <%= link_to "Pay Now ", "", id: "stripe" %>
 
 <%= javascript_pack_tag "stripe" %>

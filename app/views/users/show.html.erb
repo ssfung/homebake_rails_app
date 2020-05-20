@@ -1,7 +1,28 @@
+<div class = "row user">
+  <div class = "col-6-auto">
+    <div class = "user-details">
+      <h3>User details</h3>
+      <p>Name:<%= @user.name.capitalize %></p>
+      <p>Email:<%= @user.email %> </p>
+    </div>
+  </div>
+  <div class = "col-6-auto">
+    <div class ="user-listings">
+      <h3>Current Listings</h3>
+      <% if current_user.listings.nil? %>
+      <%= You have no listings %>
+      <% end %>
+    </div>
 
-<div class = "user-details">
-  <p>Name:<%= @user.name.capitalize %></p>
-  <p><%=current_user.listings  %></p>
-  <p> Comments: Please contact me via email <%= @user.email %> if you have any further questions regarding pickup or delivery. 
-<div>
+    <div class = "current-listings">
+      <% current_user.listings.each do |listing|%>
+      <p> <%=link_to listing.title, listing_path(listing)%></p>
+      <p> <%=listing.description %></p>
+      <p> <%=number_to_currency(listing.price) %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 
