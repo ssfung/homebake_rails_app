@@ -1,8 +1,8 @@
 class CartsController < ApplicationController
   def index 
     if user_signed_in? && current_user.carts.last
-      @cart = current_user.carts.last.carts_listings
-      @listing_ids = @cart.map do |listing|
+       @cart = current_user.carts.last.listings
+       @listing_ids = @cart.map do |listing|
         listing.id
       end
     else
@@ -17,7 +17,8 @@ class CartsController < ApplicationController
       cart = current_user.carts.last
     end 
     listing = Listing.find(params[:listing_id])
-    cart.carts_listings << listing
+    cart.listings << listing
     redirect_to listings_path
   end
 end
+

@@ -12,10 +12,3 @@ class Listing < ApplicationRecord
   belongs_to :user
 end
 
-# validates :title, presence: true
-# validates :description, presence: true
-# validates :price, presence: true
-# validates :quantity, presence: true
-# validates :delivery, presence: true
-# validates :gluten_free, presence: true
-# validates :dairy_free, presence: true
