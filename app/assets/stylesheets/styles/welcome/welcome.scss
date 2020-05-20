@@ -1,7 +1,25 @@
-#homebaked-info{
-display:block;
+.col-6-homebaked-info{
+
 margin:auto;
 text-align:center;
-background-color:yellow;
+  display:inline-block;
 
+
+}
+.search-prompt{
+  width:90%;
+
+}
+.welcome-page{
+  margin-top:30px;
+  background-color:#ffd7d5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.btn-primary{
+  background-color:#e7ad99;
+  border:none;
 }

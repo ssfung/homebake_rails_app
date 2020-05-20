@@ -22,18 +22,19 @@
       <%if @listing.dairy_free? %>
       (DF)
       <% end  %>
-      <p>Price: <%= number_to_currency(@listing.price/100) %></p>
+      <p>Price: <%= number_to_currency(@listing.price) %></p>
 
 
     <p>Chef:<%= @listing.user.name.capitalize%>
   
     <p>Category: <%= @listing.categories[0].name %>
    
-    
+    <p><%= link_to 'Back', listings_path%></p>
     <% if can? :edit, @listing %>
     <p><%= link_to 'Edit', edit_listing_path(@listing) %>
-    <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> <%= link_to 'Back', listings_path%>
-    <% end %>
+    <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Really delete #{@listing.title}?"} %> <% end %> 
+    
+   
     <div class = "add-to-cart">
     <% if user_signed_in? &&  @listing.user.id != current_user.id %>
     <%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post %>
