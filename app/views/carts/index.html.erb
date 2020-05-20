@@ -1,13 +1,11 @@
-<h1>Cart</h1>
+<div class ="cart-page">
+<div class = "prepay-cart">
+<h1>Your Cart</h1>
 
-<ul>
   <% @cart.each do |listing| %>
-    <li><%= listing.title %> <%= number_to_currency(listing.price) %></li>
-    
+    <%= listing.title %> <%= number_to_currency(listing.price) %>
   <% end %>
-</ul>
-
-<%= link_to "Pay Now ", "", id: "stripe" %>
-
+<p><%= link_to "Pay Now ", "", id: "stripe" %></p>
 <%= javascript_pack_tag "stripe" %>
-
+</div>
+</div>

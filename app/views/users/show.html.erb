@@ -1,24 +1,25 @@
-<div class = "row user">
-  <div class = "col-6-auto">
+<div class = "row-user">
+  <div class = "col-6-user">
     <div class = "user-details">
       <h3>User details</h3>
       <p>Name:<%= @user.name.capitalize %></p>
       <p>Email:<%= @user.email %> </p>
     </div>
   </div>
-  <div class = "col-6-auto">
+  <div class = "col-6-user">
     <div class ="user-listings">
-      <h3>Current Listings</h3>
       <% if current_user.listings.nil? %>
        You have no listings
       <% end %>
     </div>
 
     <div class = "current-listings">
+    <h3>Current Listings</h3>
       <% current_user.listings.each do |listing|%>
       <p> <%=link_to listing.title, listing_path(listing)%></p>
       <p> <%=listing.description %></p>
       <p> <%=number_to_currency(listing.price) %></p>
+      <p id = "line-break">**********************************</p>
       <% end %>
     </div>
   </div>
