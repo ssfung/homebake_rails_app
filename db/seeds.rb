@@ -56,8 +56,8 @@ p 'creating listings'
 
 listings = [
   {
-  title: 'Matcha Cookies',
-  description: 'Cookies with white chocolate',
+  title: 'Cupcake',
+  description: 'Best cupcake in the world',
   price: 5,
   quantity: 3,
   delivery: true,
@@ -68,8 +68,20 @@ listings = [
  
   },
   {
-  title: 'Chocolate chip cookies',
-  description: 'Dark chocolate chip cookies',
+  title: 'Cookie',
+  description: 'Levain wannabe cookie',
+  price: 8,
+  quantity: 3,
+  delivery: true,
+  gluten_free: false,
+  vegan: false,
+  dairy_free:false,
+  user_id: user.id,
+ 
+  },
+  {
+  title: 'Brownie',
+  description: 'Mysterious brownie',
   price: 5,
   quantity: 3,
   delivery: true,

@@ -15,7 +15,7 @@
           <%= search_form_for @q do |f| %>
           <%= f.label "What do you feel like eating?"%>
           <div class="input-group-append">
-          <%= f.search_field :description_cont, class: 'form-control' %>
+          <%= f.search_field :title_cont, class: 'form-control' %>
           <span><%= f.submit class: 'btn btn-primary' %></span>
           <% end %>
           </div>
