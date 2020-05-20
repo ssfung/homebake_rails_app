@@ -1,31 +1,33 @@
 <div class = "listing-wrapper">
+
 <div class = "row">
 <div class="col-sm-6">
   <div class = "listing-picture">
     <%= image_tag @listing.picture, style: "height:450px; max-width:450px;"  if @listing.picture.attached? %>
   </div>
   </div>
+
   <div class="col-sm-6">
-  <div class = "listing-title"><h1><%= @listing.title %></h1></div>
-  <div class = "information">
-    <p><%=@listing.description  %></p>
-    <%if @listing.gluten_free? %>
-    (GF)
-    <% end  %>
+    <div class = "listing-title"><h1><%= @listing.title %></h1></div>
+      <div class = "information">
+      <p><%=@listing.description  %></p>
+      <%if @listing.gluten_free? %>
+      (GF)
+      <% end  %>
 
-    <%if @listing.vegan? %>
-    (V)
-    <% end  %>
+      <%if @listing.vegan? %>
+      (V)
+      <% end  %>
 
-    <%if @listing.dairy_free? %>
-    (DF)
-    <% end  %>
+      <%if @listing.dairy_free? %>
+      (DF)
+      <% end  %>
+      <p>Price: <%= number_to_currency(@listing.price) %></p>
 
 
      <p>Price: <%= number_to_currency(@listing.price) %></p>
 
     <p>Chef:<%= @listing.user.name.capitalize%>
- 
   
     <p>Category: <%= @listing.categories[0].name %>
    
@@ -43,4 +45,3 @@
     </div>
     </div>
 </div>
-
