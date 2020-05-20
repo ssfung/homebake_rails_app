@@ -1,7 +1,9 @@
 <div>
   <% @listings.each do |listing| %>
+    
     <h1>You successfully purchased <%= listing.title %></h1> 
     <h3>You paid <%= number_to_currency(listing.price / 100) %></h3>
+    
   <% end %>
 </div>
 <%= link_to "Go To Listings", listings_path%>

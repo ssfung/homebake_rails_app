@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+R.15 high level abstractions:
+classes that we inherit from in the different parts of the application
+=> application record => active record can help us to crud records. in the background, it executes SQL 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+active record 
+action controller
+action view
+active storage (module)
+ =>explain how it wokrks i.e connect to an object storage service such as s3
