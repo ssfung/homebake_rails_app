@@ -56,9 +56,9 @@ p 'creating listings'
 
 listings = [
   {
-  title: 'Matcha Brownies',
-  description: 'Green tea brownies with white chocolate',
-  price: 500,
+  title: 'Matcha Cookies',
+  description: 'Cookies with white chocolate',
+  price: 5,
   quantity: 3,
   delivery: true,
   gluten_free: false,
@@ -70,7 +70,7 @@ listings = [
   {
   title: 'Chocolate chip cookies',
   description: 'Dark chocolate chip cookies',
-  price: 500,
+  price: 5,
   quantity: 3,
   delivery: true,
   gluten_free: false,

@@ -2,6 +2,12 @@ h1{
   text-align:center;
 }
 
+a{
+  color:#495867;
+  text-decoration:underline;
+
+
+}
 .sort-link{
   display:flex;
   justify-content: center;
@@ -34,8 +40,9 @@ min-width:1%;
   width:250px;
   margin:20px;
   word-wrap: break-word;
+  background-color: #ecc8af;
   text-align:center;
-  border: 1px black solid;
+  // border: 3px #495867 solid;
   &:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }

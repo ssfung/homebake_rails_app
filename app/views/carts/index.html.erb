@@ -2,7 +2,7 @@
 
 <ul>
   <% @cart.each do |listing| %>
-    <li><%= listing.title %> <%= number_to_currency(listing.price/100) %></li>
+    <li><%= listing.title %> <%= number_to_currency(listing.price) %></li>
     
   <% end %>
 </ul>

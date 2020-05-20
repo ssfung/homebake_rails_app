@@ -1,22 +1,25 @@
+ <div class="welcome-message">
+  <% if user_signed_in? %>
+  <h4>Welcome <%=current_user.name.capitalize  %>!</h4>
+  <% end  %>  
+</div>
 <div class="welcome-page">
   <div class = "row row-cols-2">
-  <div class="col-6 welcome-sign">
-  <%= image_tag("macarons.jpeg", style: "max-width:100%; height:auto")%>
-  </div>
-    <div class="col-6", id="homebaked-info">
-    <h1>HOMEBAKE</h1>
-    <p>Buy and sell baked at home treats including cakes, breads and desserts. </p>
+    <div class="col-6 welcome-sign">
+      <%= image_tag("macarons.jpeg", style: "max-width:100%; height:auto")%>
     </div>
+    <div class="col-6-homebaked-info">
+      <h1>HOMEBAKE</h1>
+      <p>Buy and sell baked at home treats including cakes, breads and desserts. </p>
+        <div class="search-prompt">
+          <%= search_form_for @q do |f| %>
+          <%= f.label "What do you feel like eating?"%>
+          <div class="input-group-append">
+          <%= f.search_field :description_cont, class: 'form-control' %>
+          <span><%= f.submit class: 'btn btn-primary' %></span>
+          <% end %>
+          </div>
+        </div>
+    </div> 
   </div>
 </div>
-<% if user_signed_in? %>
-<h3>Welcome <%=current_user.name.capitalize  %>!</h3>
-<% end  %>
-
-<div class="search-prompt">
-  <%= search_form_for @q do |f| %>
-  <%= f.label :description%>
-  <%= f.search_field :description_cont, class: 'form-control' %>
-  <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
-</div> 
