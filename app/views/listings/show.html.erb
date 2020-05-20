@@ -22,7 +22,7 @@
       <%if @listing.dairy_free? %>
       (DF)
       <% end  %>
-      <p>Price: <%= number_to_currency(@listing.price) %></p>
+      <p>Price: <%= number_to_currency(@listing.price/100) %></p>
 
 
     <p>Chef:<%= @listing.user.name.capitalize%>
