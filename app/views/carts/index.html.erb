@@ -2,7 +2,7 @@
   <div class = "prepay-cart">
   <h1>Your Cart</h1>
   <% @cart.each do |listing| %>
-    <%= listing.title %> <%= number_to_currency(listing.price) %>
+    <p><%= listing.title %> <%= number_to_currency(listing.price) %></p>
   <% end %>
   <p><%= link_to "Pay Now ", "", id: "stripe" %></p>
   <%= javascript_pack_tag "stripe" %>
