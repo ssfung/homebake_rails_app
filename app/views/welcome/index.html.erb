@@ -1,6 +1,6 @@
  <div class="welcome-message">
   <% if user_signed_in? %>
-  <h4>Welcome <%=current_user.name.capitalize  %>!</h4>
+  <h4>Welcome <%=sanitize current_user.name.capitalize  %>!</h4>
   <% end  %>  
 </div>
 <div class="welcome-page">
