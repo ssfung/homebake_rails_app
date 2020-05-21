@@ -14,6 +14,7 @@
     </div>
 
     <div class = "current-listings">
+    <%# lists out all the title, description and price of all available items the user has listed %>
     <h3>Current Listings</h3>
       <% current_user.listings.each do |listing|%>
       <p> <%=link_to sanitize(listing.title), listing_path(listing)%></p>
