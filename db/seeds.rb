@@ -98,8 +98,8 @@ listings = [
 listings.each do |listing|
 new_listing = Listing.new(listing) 
 new_listing.picture.attach(
-  io: File.open('app/assets/images/cookie.jpeg'), 
-  filename: 'cookie.jpeg',
+  io: File.open('app/assets/images/cookie2.jpeg'), 
+  filename: 'cookie2.jpeg',
   content_type: "image/jpg/") 
 new_listing.listings_categories.build(category_id: 2)
 new_listing.save

@@ -25,6 +25,7 @@ class PaymentsController < ApplicationController
   end
 
   def get_stripe_id
+  #will find the current user's cart and listings inside and using the .map method to print out the following hash 
     @listings = current_user.carts.last.listings
     line_items = @listings.map do |listing|
       {
