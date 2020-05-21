@@ -2,8 +2,8 @@
   <div class = "col-6-user">
     <div class = "user-details">
       <h3>User details</h3>
-      <p>Name:<%= @user.name.capitalize %></p>
-      <p>Email:<%= @user.email %> </p>
+      <p>Name:<%= sanitize @user.name.capitalize %></p>
+      <p>Email:<%= sanitize @user.email %> </p>
     </div>
   </div>
   <div class = "col-6-user">

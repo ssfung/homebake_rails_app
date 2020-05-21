@@ -1,5 +1,6 @@
 <h1>All listings</h1>
 <div class = "sort-link">
+<!-- the code below is used from ransack where @q which inherits from the application controller to search for all listings  -->
   <p>Sort by<%= sort_link(@q, :title) %> . Sort by<%= sort_link(@q, :price) %></p>
 </div>
 <div class = "row listings-row">
@@ -9,7 +10,7 @@
       <div class ="card-content">
         <%= render 'shared/image', listing:listing %> 
         <p> <%=link_to listing.title, listing_path(listing)%></p>
-        <p> <%=listing.description %></p>
+        <p> <%=sanitize listing.description %></p>
         <p> <%=number_to_currency(listing.price) %>
       </div>
         <% end %>
