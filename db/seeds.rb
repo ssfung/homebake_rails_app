@@ -1,4 +1,4 @@
-
+#deleting all previous history when seeds file is called so that the data can be over written
 Listing.delete_all
 User.delete_all
 Category.delete_all
@@ -94,7 +94,7 @@ listings = [
 ] 
 
 
-
+#creating a new listing using the information from above in listings and attaching an image on from local storage and saving this. 
 listings.each do |listing|
 new_listing = Listing.new(listing) 
 new_listing.picture.attach(
@@ -105,8 +105,6 @@ new_listing.listings_categories.build(category_id: 2)
 new_listing.save
 p listing
 end
-
-
 
 p 'listings created'
 
