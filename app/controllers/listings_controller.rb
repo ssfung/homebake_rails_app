@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
   def show
   end
 
+#creates a new listing 
   def new
     @listing = Listing.new
   end
@@ -31,7 +32,7 @@ class ListingsController < ApplicationController
 
   def edit
   end
-
+#updates a listing including the category
   def update
     @listing.update(listing_params)
     @listing.listings_categories.update(category_id: params[:listing][:category_id])
